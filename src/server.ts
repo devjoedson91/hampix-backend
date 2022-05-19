@@ -3,6 +3,7 @@
 import express, { Request, Response, NextFunction } from 'express'; // NextFunction - prosseguir a app
 import 'express-async-errors';
 import cors from 'cors'; // o cors serve para que qualquer ip consiga fazer requisições nessa api
+import path from 'path'; // diretorios/caminhos
 
 import { router } from './routes';
 
@@ -13,7 +14,12 @@ app.use(cors()) ;
 
 app.use(router);
 
-// middlewares
+// middleware para criar exibição de imagens de produtos no front end
+
+app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
+
+
+// middleware para tratamento de erros de requisições
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => { // todas as rotas passam aqui
 
