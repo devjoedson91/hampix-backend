@@ -3,17 +3,19 @@ import prismaClient from "../../prisma";
 interface OrderRequest {
 
     table: number;
+    delivery: boolean;
     name : string;
 }
 
 class CreateOrderService {
 
-    async execute({ table, name }: OrderRequest) {
+    async execute({ table, delivery, name }: OrderRequest) {
 
         const order = await prismaClient.order.create({
 
             data: {
-                table: table,
+                num_table: table,
+                delivery: delivery,
                 name: name
             }
 
