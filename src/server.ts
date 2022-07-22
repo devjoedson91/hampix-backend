@@ -38,4 +38,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => { // to
 
 });
 
-app.listen(3333, () => console.log('servidor online'));
+app.listen(process.env.PORT || 3333, () => console.log('servidor online'));
