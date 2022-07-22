@@ -8,7 +8,8 @@
   "author": "Joedson Ferreira <joedson.devel@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "start": "ts-node-dev src/server.ts"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
